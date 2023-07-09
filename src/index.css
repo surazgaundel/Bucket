@@ -17,3 +17,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+button{
+  padding:5px;
+}
+
+button:hover{
+  background-color:#000;
+}
