@@ -59,6 +59,7 @@ function App() {
   
   const handleRemove=(id)=>{
     setList(list.filter(item=>item.id!==id))
+    showAlert(true,'Item Removed','danger')
   }
 
   const showAlert=(show=false,msg='',type='')=>{
@@ -72,11 +73,11 @@ function App() {
       {alert.show&& <Alert {...alert} removeAlert={showAlert} list={list} handleEdit={handleEdit}/>}
       <form onSubmit={handleSubmit} className="flex mt-3 mb-3 ">
         <input type='text' placeholder='Fill the bucket' value={name} onChange={handleChange} className='p-2 rounded-l-lg' />
-        <button type='submit' className='text-green-300 rounded-r-lg'>{isEditing?'Edit':'Add'} Item</button>
+        <button type='submit' className='text-green-300 rounded-r-lg bg-slate-800'>{isEditing?'Edit':'Add'} Item</button>
       </form>
       {list.length>0 && (<div className='m-4'>
         <List list={list} handleRemove={handleRemove} handleEdit={handleEdit}/>
-        <button type='button' onClick={handleClear} className="mt-2 text-red-500 rounded-lg">Clear Items</button>
+        <button type='button' onClick={handleClear} className="mt-2 text-red-500 rounded-lg w-full bg-slate-800">Clear Items</button>
       </div>)}
     </section>
   </>
